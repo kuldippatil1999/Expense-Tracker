@@ -7,10 +7,12 @@ function Expenses(props) {
     <div className="expense">
       {props.item.map((expense) => (
         <ExpenseItem
-          key={expense._id}
+        key={expense._id}
+          id={expense._id}
           date={expense.date}
           title={expense.title}
           amount={expense.amount}
+          data={expense.data}
         />
       ))}
     </div>

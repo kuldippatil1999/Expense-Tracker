@@ -55,24 +55,24 @@ app.get("/api/v1/products",async(req,res)=>{
    )
 })
 
- // Delete Product
+//  Delete Product
 
-// app.delete("/api/v1/product/:id",async(req,res)=>{
-//     const product=await Product.findById(req.params.id);
+app.delete("/api/v1/product/:id",async(req,res)=>{
+    const product=await Product.findById(req.params.id);
 
-//     if(!product){
-//         return res.status(500).json({
-//             success:false,
-//             massage:"product not found"
-//         })
-//     }
+    if(!product){
+        return res.status(500).json({
+            success:false,
+            massage:"product not found"
+        })
+    }
 
-//     await product.remove();
-//     res.status(200).json({
-//         success:true,
-//         massage:"product is deleted successfully"
-//     })
-// })
+    await product.remove();
+    res.status(200).json({
+        success:true,
+        massage:"product is deleted successfully"
+    })
+})
 
 app.listen(4500, () => {
     console.log("Server is Working http://localhost:4500");
